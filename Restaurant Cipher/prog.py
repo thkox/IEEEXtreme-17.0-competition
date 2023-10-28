@@ -8,7 +8,7 @@ def decipher_the_message(message):
     f = message.count('f')
     g = message.count('g')
     # the letter with the maximum count is the key:
-    key = max(g, a, e, b, c)
+    key = max(a, b, c, d, e, f, g)
     # decipher the message using the key:
     if key == a:
         return "A"
