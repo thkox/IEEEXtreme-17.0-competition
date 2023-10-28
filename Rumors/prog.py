@@ -28,3 +28,4 @@ print(*sorted(possible_first_spreaders), sep="\n")
 # bob -> chuck
 # bob -> dev
 # dev ?? eve
+# eve -> alice
