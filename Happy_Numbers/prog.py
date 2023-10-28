@@ -24,13 +24,19 @@ import numpy
 import scipy
 
 def is_Happy_num(n):
-  past = set()
-  while n != 1:
-        n = sum(int(i)**2 for i in str(n))
-        if n in past:
-            return False
-        past.add(n)
-  return True
+    def get_next(num):
+        return sum(int(digit) ** 2 for digit in str(num))
+    
+    slow = n
+    fast = n
+    while True:
+        slow = get_next(slow)
+        fast = get_next(get_next(fast))
+        if slow == fast:
+            break
+    
+    return slow == 1
+
 
 a = get_number()
 b = get_number()
