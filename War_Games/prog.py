@@ -29,15 +29,11 @@ for i in range(n):
     
     while True:
         draw = False
-        if len(player_1_cards) == len(player_2_cards):
-            for i in range(len(player_1_cards)):
-                if player_1_cards[i] == player_2_cards[i]:
-                    draw = True
-                else:
-                    draw = False
-                    break
-                
-        if draw:
+        
+        set1 = set(player_1_cards)
+        set2 = set(player_2_cards)
+        
+        if set1 == set2:
             output.append('draw')
             break
         
