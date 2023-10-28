@@ -11,9 +11,11 @@ def noticable_people(heights):
     for i in range(len(heights)):
         for j in range(i + 1, len(heights)):
             # extract the values between heights[i] and heights[j]
-            values = list(heights.values())[i:j]
+            values = list(heights.values())[i+1:j]
             # check if there are any values that are greater than or equal to heights[i]
-            if heights[i] >= max(values):
+            if j - i == 1:
+                noticable_people_number += 1
+            elif heights[i] > max(values):
                 noticable_people_number += 1
     return noticable_people_number
 
@@ -22,17 +24,9 @@ if __name__=="__main__":
     # store the five values from the terminal
     input = [int(x) for x in input().split()]
 
-    n = input[0]
-    first_person = input[1]
-    a = input[2]
-    c = input[3]
-    q = input[4]
-
-    for i in range(n):
+    for i in range(input[0]):
         if i == 0:
-            heights[i] = first_person
+            heights[i] = input[1]
         else:
-            heights[i] = calculate_height_of_person(a, heights[i-1], c, q)
-    
-    final_value = noticable_people(heights)
-    print(final_value)
+            heights[i] = calculate_height_of_person(input[2], heights[i-1], input[3], input[4])
+    print(noticable_people(heights))
