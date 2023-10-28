@@ -1,17 +1,17 @@
 def encrypt_message(message, key):
-    message_ecrypted = []
+    message_encrypt = []
     for i in range(len(message)):
-        # ceaser cipher
-        ascii_message = [(ord(char) - key - 97) % 26 + 97 for char in message[i]]
-        # convert ascii message to text
-        message_ecrypted.append("".join([chr(ascii) for ascii in ascii_message]))
-    return " ".join(message_ecrypted)
+        # Caesar cipher encryption
+        ascii_message = [(ord(char) - 97 + key) % 26 + 97 for char in message[i]]
+        # Convert ascii message to text
+        message_encrypt.append("".join([chr(ascii) for ascii in ascii_message]))
+    return " ".join(message_encrypt)
     
     
 def decrypt_message(message, key):
     message_decrypt = []
     for i in range(len(message)):
-        # ceaser cipher
+        # Caesar cipher encryption
         ascii_message = [(ord(char) - key + 97) % 26 + 97 for char in message[i]]
         # convert ascii message to text
         message_decrypt.append("".join([chr(ascii) for ascii in ascii_message]))
