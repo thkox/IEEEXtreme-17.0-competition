@@ -17,6 +17,8 @@ def noticable_people(heights):
                 noticable_people_number += 1
             elif heights[i] > max(values):
                 noticable_people_number += 1
+            else:
+                break
     return noticable_people_number
 
 # main function
