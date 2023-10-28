@@ -23,28 +23,25 @@ n = get_number()
 m = get_number()
 
 dictionary = []
-# blended_words = []
-prefixes = []
-suffixes = []
 
 for i in range(n):
     dictionary.append(get_word())
-    
-for i in range(m):
-    word = get_word()
-    prefixes.append(word[0:3])
-    suffixes.append(word[-3:])
-    # blended_words.append(word)
 
 output = []
 
 for i in range(m):
+    word = get_word()
+    if len(word) <= 4:
+        output.append('none')
+        continue
+    
+    prefix = word[0:3]
+    suffix = word[-3:]
     counter = 0
-    prefix = prefixes[i]
-    suffix = suffixes[i]
     first_word = None
     second_word = None
     is_ambiguous = False
+    
     for word in dictionary:
         if counter >= 2:
             is_ambiguous = True
