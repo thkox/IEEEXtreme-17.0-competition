@@ -2,7 +2,7 @@ def encrypt_message(message, key):
     message_encrypt = []
     for i in range(len(message)):
         # Caesar cipher encryption
-        ascii_message = [(ord(char) - 97 + key) % 26 + 97 for char in message[i]]
+        ascii_message = [(ord(char) - 97 - key) % 26 + 97 for char in message[i]]
         # Convert ascii message to text
         message_encrypt.append("".join([chr(ascii) for ascii in ascii_message]))
     return " ".join(message_encrypt)
