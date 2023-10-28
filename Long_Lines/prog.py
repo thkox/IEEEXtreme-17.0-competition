@@ -8,14 +8,16 @@ heights = {}
 # compare heights of the people
 def noticable_people(heights):
     noticable_people_number = 0
+    # Person i is standing in front of person j in line
+    noticable_people_number = len(heights) - 1
+    # There are no people standing between person i and j that are as tall or taller than person i.
+
     for i in range(1, len(heights)):
-        # if the height of the person is greater than the previous person
-        if heights[i] > heights[i - 1]:
-            noticable_people_number += 1
+        values = [heights[key] for key in heights.keys() if i <= key <= len(heights)]
+        max_height = max(values)
         # if the height of the person is greater than all the other people in front of him
-        elif heights[i] > max(heights[:i]):
+        if heights[i] > max_height:
             noticable_people_number += 1
-            
     return noticable_people_number
 
 # main function
@@ -37,7 +39,8 @@ if __name__=="__main__":
         if i == 0:
             heights[i] = first_person
         else:
-            heights[i] = calculate_height_of_person(a, heights[i], c, q)
+            heights[i] = calculate_height_of_person(a, heights[i-1], c, q)
+        print(heights[i])
     
     final_value = noticable_people(heights)
     print(final_value)
