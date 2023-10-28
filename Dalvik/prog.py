@@ -28,9 +28,9 @@ for _ in range(reps):
     v2 = get_number()
     v3 = 1
     v4 = v3 - v3
-    v5 = v4 - v3 
+    v5 = v4 - v3
     v6 = v3 
-    v7 = v4 
+    v7 = v4
     v7 = v7 - v1
     v8 = v0
     v9 = v0
